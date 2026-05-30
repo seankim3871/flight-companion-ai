@@ -1,70 +1,46 @@
 # Flight Companion AI
 
-Track flights and know exactly when to leave for the airport to pick up arriving passengers.
-
-## Tech Stack
-
-- **Next.js 15** (App Router)
-- **React 19** + **TypeScript**
-- **Tailwind CSS** (mobile-first, dark mode)
-- **AeroDataBox** via RapidAPI (live flight data)
-- **Vercel** deployment ready
-
-## Getting Started
-
-### 1. Install dependencies
-
-```bash
-npm install
-```
-
-### 2. Add your RapidAPI key
-
-Create `.env.local` in the project root (or copy from `.env.example`):
-
-```bash
-cp .env.example .env.local
-```
-
-Edit `.env.local` and paste your key:
-
-```env
-RAPIDAPI_KEY=your_actual_rapidapi_key_here
-```
-
-Get a key at [AeroDataBox on RapidAPI](https://rapidapi.com/aedbx-aedbx/api/aerodatabox).
-
-**Important:** Restart the dev server after saving `.env.local`:
-
-```bash
-npm run dev
-```
-
-### 3. Optional — AI Arrival Assistant
-
-```env
-OPENAI_API_KEY=your_openai_api_key_here
-```
-
-Uses a local fallback if unset.
-
-## Flight search
-
-Enter a flight number (e.g. `DL123`, `KE35`, `AA250`) and your home address. Live data comes from AeroDataBox.
+Flight Companion AI is an AI-powered airport pickup assistant that helps users track flights and plan airport pickups using real-time flight data.
 
 ## Features
 
-- **Pickup Planning** — drive time, leave-home time, safety buffer
-- **Favorite flights** — saved locally
-- **Email & SMS reminders** — simulated notifications
-- **Airport weather** — mock conditions + buffer adjustment
-- **Enhanced pickup tips** — curbside, terminal, parking
-- Interactive **Leaflet** map
-- **AI Arrival Assistant** (OpenAI optional)
+- Real-time flight tracking
+- Flight status monitoring
+- Airport pickup planning
+- Interactive flight map
+- AI-generated arrival recommendations
+- Home-to-airport scheduling assistance
 
-## Deploy on Vercel
+## Built With
 
-1. Push to GitHub and import in [Vercel](https://vercel.com).
-2. Add environment variable: `RAPIDAPI_KEY`
-3. Optionally add `OPENAI_API_KEY`.
-4. Deploy.
+- Next.js
+- TypeScript
+- Tailwind CSS
+- AeroDataBox API
+- OpenStreetMap / Leaflet
+
+## How It Works
+
+1. Enter a flight number
+2. Enter your home address
+3. The app retrieves live flight information
+4. The system calculates pickup timing
+5. The user receives arrival and pickup recommendations
+
+## Example Use Case
+
+A family member is arriving at the airport.
+
+Instead of manually checking flight status and estimating travel time, users can enter the flight number and receive a pickup plan based on real-time flight information.
+
+## Future Improvements
+
+- Google Maps integration
+- SMS notifications
+- Flight delay alerts
+- Mobile app version
+- User accounts and saved flights
+
+## Author
+
+Sean Kim
