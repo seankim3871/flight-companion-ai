@@ -1,0 +1,99 @@
+@import "leaflet/dist/leaflet.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base typography and smooth theme transitions */
+@layer base {
+  html {
+    @apply antialiased scroll-smooth;
+  }
+
+  body {
+    @apply bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100;
+  }
+}
+
+/* Leaflet map — aligned with app design system */
+@layer components {
+  .flight-map-container {
+    @apply rounded-xl bg-slate-100 dark:bg-slate-800;
+    touch-action: manipulation;
+  }
+
+  .flight-map-container .leaflet-control-zoom {
+    @apply rounded-lg border-0 shadow-md;
+  }
+
+  .flight-map-container .leaflet-control-zoom a {
+    @apply text-slate-700 dark:text-slate-200;
+  }
+
+  .dark .flight-map-container .leaflet-tile-pane {
+    filter: brightness(0.85) contrast(1.05);
+  }
+
+  .flight-map-marker {
+    background: transparent !important;
+    border: none !important;
+  }
+
+  .flight-map-marker__wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .flight-map-marker__pin {
+    display: flex;
+    height: 32px;
+    width: 32px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    background: var(--marker-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid white;
+  }
+
+  .dark .flight-map-marker__pin {
+    border-color: rgb(15 23 42);
+  }
+
+  .flight-map-marker__glyph {
+    transform: rotate(45deg);
+    font-size: 14px;
+    line-height: 1;
+    color: white;
+    font-weight: 700;
+  }
+
+  .flight-map-marker__label {
+    font-size: 10px;
+    font-weight: 600;
+    color: rgb(51 65 85);
+    white-space: nowrap;
+    text-shadow: 0 0 4px white, 0 0 4px white;
+  }
+
+  .dark .flight-map-marker__label {
+    color: rgb(226 232 240);
+    text-shadow: 0 0 4px rgb(15 23 42), 0 0 4px rgb(15 23 42);
+  }
+
+  .flight-map-popup__title {
+    @apply text-xs font-semibold uppercase tracking-wide text-slate-500;
+  }
+
+  .flight-map-popup__name {
+    @apply text-sm font-medium text-slate-900 dark:text-white;
+  }
+
+  .flight-map-popup__code,
+  .flight-map-popup__coords {
+    @apply text-xs text-slate-600 dark:text-slate-400;
+  }
+}
